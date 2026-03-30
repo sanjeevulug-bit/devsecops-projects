@@ -21,6 +21,14 @@ jobs:
       run: |
         pip install flask
 
-    - name: Check Python file
+    - name: Check Python syntax
       run: |
         python -m py_compile app.py
+
+    - name: Install Bandit
+      run: |
+        pip install bandit
+
+    - name: Run Security Scan
+      run: |
+        bandit -r .
